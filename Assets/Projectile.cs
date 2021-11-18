@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    [SerializeField]
+    private WeaponType _type;
+
     // Start is called before the first frame update
     void Start()
     {
