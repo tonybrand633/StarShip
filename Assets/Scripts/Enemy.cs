@@ -7,8 +7,12 @@ public class Enemy : MonoBehaviour
     public float Speed = 10f;
     public float fireRate = 0.3f;
     public float health = 10;
-    //玩家击杀后获得的金币
-    public int Coins = 1;
+    public int showDamageForFrames = 2;//显示伤害效果的帧数
+    public Color[] originalColors;
+    public Material[] materials;
+    public int remainingDamageFrames = 0;//剩余的伤害效果帧数
+    
+    public int Coins = 1;//玩家击杀后获得的金币
 
     public Bounds bounds;
     public float height;
@@ -27,10 +31,25 @@ public class Enemy : MonoBehaviour
             CheckOffScreen();
         }
 
+        if (remainingDamageFrames>0) 
+        {
+            remainingDamageFrames--;
+            if (remainingDamageFrames==0) 
+            {
+                UnShowDamage();
+            }
+        }
+
     }
     private void Awake()
     {
-        //InvokeRepeating("CheckOffScreen", 0f, 2f);    
+        materials = Utils.GetAllMaterial(this.gameObject);
+        originalColors = new Color[materials.Length];
+        for (int i = 0; i < materials.Length; i++)
+        {
+            originalColors[i] = materials[i].color;
+        }
+        
     }
 
     private void Start()
@@ -74,7 +93,7 @@ public class Enemy : MonoBehaviour
         {
             case "ProjectileHero":
                 Projectile p = other.GetComponent<Projectile>();
-                Debug.Log(p.type.ToString());
+                //Debug.Log(p.type.ToString());
                 //让敌机在进入屏幕之前不受伤害
                 if (!InScreen)
                 {
@@ -83,12 +102,30 @@ public class Enemy : MonoBehaviour
                 }
                 //否则，就给该敌机造成伤害
                 health -= GameManager.W_DEFS[p.type].DamageOnHit;
+                ShowDamage();
                 if (health <= 0)
                 {
                     Destroy(this.gameObject);
                 }
                 Destroy(other);
                 break;
+        }
+    }
+
+    void ShowDamage() 
+    {
+        foreach (Material m in materials) 
+        {
+            m.color = Color.red;
+        }
+        remainingDamageFrames = showDamageForFrames;
+    }
+
+    void UnShowDamage() 
+    {
+        for (int i = 0; i < materials.Length; i++)
+        {
+            materials[i].color = originalColors[i];
         }
     }
 }

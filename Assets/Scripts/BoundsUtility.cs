@@ -6,7 +6,7 @@ public class BoundsUtility : MonoBehaviour
 {
 
     //===================================BoundsTest==========================================
-    public enum BoundTest 
+    public enum BoundTest
     {
         center, //游戏对象中心是否位于屏幕
         onScreen,   //游戏对象是否完全位于屏幕之中
@@ -16,7 +16,7 @@ public class BoundsUtility : MonoBehaviour
 
     //===================================Bounds函数==========================================
     //接收两个Bounds变量，返回包含这两个变量的新Bounds
-    public static Bounds BoundsUnion(Bounds b1,Bounds b2) 
+    public static Bounds BoundsUnion(Bounds b1, Bounds b2)
     {
         if (b1.size == Vector3.zero && b2.size != Vector3.zero)
         {
@@ -24,7 +24,7 @@ public class BoundsUtility : MonoBehaviour
         } else if (b1.size != Vector3.zero && b2.size == Vector3.zero)
         {
             return b1;
-        } else if (b1.size == Vector3.zero && b2.size == Vector3.zero) 
+        } else if (b1.size == Vector3.zero && b2.size == Vector3.zero)
         {
             return b1;
         }
@@ -34,7 +34,7 @@ public class BoundsUtility : MonoBehaviour
         b1.Encapsulate(b2.max);
         return b1;
     }
-    public static Bounds CombineBoundsOfChildren(GameObject go) 
+    public static Bounds CombineBoundsOfChildren(GameObject go)
     {
         Bounds b = new Bounds(Vector3.zero, Vector3.zero);
 
@@ -43,12 +43,12 @@ public class BoundsUtility : MonoBehaviour
         //{
         //    b = BoundsUnion(b, go.GetComponent<Renderer>().bounds);
         //}
-        if (go.GetComponent<Collider2D>()!=null) 
+        if (go.GetComponent<Collider2D>() != null)
         {
             b = BoundsUnion(b, go.GetComponent<Collider2D>().bounds);
         }
 
-        foreach (Transform t in go.transform) 
+        foreach (Transform t in go.transform)
         {
             b = BoundsUnion(b, CombineBoundsOfChildren(t.gameObject));
         }
@@ -57,7 +57,7 @@ public class BoundsUtility : MonoBehaviour
     }
 
     //返回单个BoxCollider的Bounds
-    public static Bounds BoundsSingle(GameObject go) 
+    public static Bounds BoundsSingle(GameObject go)
     {
         Bounds bounds = go.GetComponent<Collider2D>().bounds;
         return bounds;
@@ -78,16 +78,16 @@ public class BoundsUtility : MonoBehaviour
     }
 
     //设置相机的Bounds属性
-    public static void SetCameraBounds(Camera cam=null) 
+    public static void SetCameraBounds(Camera cam = null)
     {
-        if (cam==null) 
+        if (cam == null)
         {
-            cam = Camera.main;        
+            cam = Camera.main;
         }
 
         //根据左上角和右下角坐标创建两个三维向量
         Vector3 topRight = new Vector3(0, 0, 0);
-        Vector3 bottomLeft = new Vector3(Screen.width, Screen.height,0);
+        Vector3 bottomLeft = new Vector3(Screen.width, Screen.height, 0);
 
         //把这两个三维向量的坐标从屏幕坐标转为世界坐标
         Vector3 topTO = cam.ScreenToWorldPoint(topRight);
@@ -105,13 +105,13 @@ public class BoundsUtility : MonoBehaviour
     }
 
     //外界调用方法，检查传入物体Bounds与相机的Bounds的关系
-    public static Vector3 ScreenBoundsCheck(Bounds bnd,BoundTest test = BoundTest.onScreen) 
+    public static Vector3 ScreenBoundsCheck(Bounds bnd, BoundTest test = BoundTest.onScreen)
     {
-       return BoundInBoundCheck(camBounds, bnd);
+        return BoundInBoundCheck(camBounds, bnd);
     }
 
     //根据枚举的情况检查边界框bnd是否位于camBounds之内
-    public static Vector3 BoundInBoundCheck(Bounds big,Bounds lib,BoundTest test = BoundTest.onScreen) 
+    public static Vector3 BoundInBoundCheck(Bounds big, Bounds lib, BoundTest test = BoundTest.onScreen)
     {
         //获取被检测物体的中心
         Vector3 centerPos = lib.center;
@@ -196,15 +196,15 @@ public class BoundsUtility : MonoBehaviour
     }
 
     //物体是否进入相机内
-    public static bool isInCamera(Bounds bounds) 
+    public static bool isInCamera(Bounds bounds)
     {
-        if (camBounds.Contains(bounds.max)||camBounds.Contains(bounds.min)) 
+        if (camBounds.Contains(bounds.max) || camBounds.Contains(bounds.min))
         {
             //Debug.Log("True");
             return true;
         }
         //Debug.Log("False");
-        return false;        
+        return false;
     }
 
     //根据物体信息自动寻找父物体
@@ -214,11 +214,13 @@ public class BoundsUtility : MonoBehaviour
         {
             return go;
         }
-        else 
+        else
         {
             go = go.transform.parent.gameObject;
         }
         return FindParent(go);
     }
+
+
 
 }

@@ -125,6 +125,10 @@ MonoBehaviour:
   Speed: 2
   fireRate: 0.3
   health: 15
+  showDamageForFrames: 20
+  originalColors: []
+  materials: []
+  remainingDamageFrames: 0
   Coins: 1
   bounds:
     m_Center: {x: 0, y: 0, z: 0}

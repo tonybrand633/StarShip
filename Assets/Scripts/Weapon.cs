@@ -54,7 +54,6 @@ public class Weapon : MonoBehaviour
         }
 
         Projectile p;
-        Debug.Log(type.ToString());
         switch (type) 
         {
             case WeaponType.single:
@@ -89,8 +88,9 @@ public class Weapon : MonoBehaviour
         p.type = type;
         lastShot = Time.time;
         return p;
+    }    
 
-    }
+    
 }
 
 

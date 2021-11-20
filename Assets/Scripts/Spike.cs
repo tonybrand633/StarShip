@@ -101,7 +101,11 @@ public class Spike : MonoBehaviour
             shieldLevel--;
             Destroy(other.gameObject);
         }
-        else 
+        if (other.tag=="PowerUp") 
+        {
+            
+        }
+        else
         {
             Debug.Log(other.gameObject.name);
         }
