@@ -86,7 +86,7 @@ public class Spike : MonoBehaviour
         }
     }
 
-
+    //防止误撞，防止一个敌人对玩家造成多次伤害
     public GameObject LastTriggerGameObject;
     void OnTriggerEnter2D(Collider2D other)
     {

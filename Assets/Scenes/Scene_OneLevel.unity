@@ -343,15 +343,15 @@ MonoBehaviour:
     letter: A
     color: {r: 0, g: 0, b: 0, a: 0}
     Projectile: {fileID: 8764092093854835764, guid: 745a1d4a25eff8045b3c57e7449eab7f, type: 3}
-    DamageOnHit: 1
-    DelayBetweenShot: 0.4
+    DamageOnHit: 2
+    DelayBetweenShot: 0.3
     velocity: 20
   - type: 1
     letter: S
     color: {r: 0, g: 0, b: 0, a: 0}
     Projectile: {fileID: 3436928233536451319, guid: e5f6cb111dfd7374589e23205b03ec6a, type: 3}
-    DamageOnHit: 2
-    DelayBetweenShot: 0.6
+    DamageOnHit: 4
+    DelayBetweenShot: 0.4
     velocity: 20
   activeWeaponTypes: 
 --- !u!1001 &4497908049613064287

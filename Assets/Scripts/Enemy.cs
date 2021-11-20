@@ -65,4 +65,30 @@ public class Enemy : MonoBehaviour
             
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        GameObject other = collision.gameObject;        
+
+        switch (other.tag)
+        {
+            case "ProjectileHero":
+                Projectile p = other.GetComponent<Projectile>();
+                Debug.Log(p.type.ToString());
+                //让敌机在进入屏幕之前不受伤害
+                if (!InScreen)
+                {
+                    Destroy(other);
+                    break;
+                }
+                //否则，就给该敌机造成伤害
+                health -= GameManager.W_DEFS[p.type].DamageOnHit;
+                if (health <= 0)
+                {
+                    Destroy(this.gameObject);
+                }
+                Destroy(other);
+                break;
+        }
+    }
 }

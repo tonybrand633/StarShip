@@ -8,7 +8,7 @@ public class Weapon : MonoBehaviour
 
     public bool _________________________;
     [SerializeField]
-    private WeaponType _type = WeaponType.spread;
+    private WeaponType _type;
     public WeaponType type 
     {
         get { return _type; }
@@ -35,6 +35,7 @@ public class Weapon : MonoBehaviour
     public void SetType(WeaponType wt) 
     {
         _type = wt;
+        //得到的是spread
         def = GameManager.GetWeaponDefinition(_type);
         //此处可以再对子弹进行一系列操作
         //你总是能在改变武器类型的一瞬间进行射击
@@ -53,6 +54,7 @@ public class Weapon : MonoBehaviour
         }
 
         Projectile p;
+        Debug.Log(type.ToString());
         switch (type) 
         {
             case WeaponType.single:

@@ -41,7 +41,7 @@ public class Projectile : MonoBehaviour
 
     void Start()
     {
-        type = WeaponType.triple;
+
     }
 
     // Update is called once per frame
