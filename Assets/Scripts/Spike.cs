@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Spike : MonoBehaviour
 {
+    public delegate void WeaponFireDelegate();
+
+    public WeaponFireDelegate fireDelegate;
     //单例对象
     public static Spike S;
 
@@ -71,10 +74,15 @@ public class Spike : MonoBehaviour
         //Bounds检测使飞船保持在屏幕内,bounds不会随着位置实时更新
         bounds.center = transform.position;
         Vector3 offset = BoundsUtility.ScreenBoundsCheck(bounds);
-        if (offset!=Vector3.zero) 
+        if (offset != Vector3.zero)
         {
             pos -= offset;
             transform.position = pos;
+        }
+
+        if (Input.GetAxis("Jump")==1&&fireDelegate!=null) 
+        {
+            fireDelegate();
         }
     }
 

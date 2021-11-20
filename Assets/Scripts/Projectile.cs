@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour
     private WeaponType _type;
 
     BoxCollider2D col;
+    public Rigidbody2D rig;
 
 
     public WeaponType type 
@@ -31,9 +32,15 @@ public class Projectile : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         col = GetComponent<BoxCollider2D>();
+        rig = GetComponent<Rigidbody2D>();
+        
+    }
+
+    void Start()
+    {
         type = WeaponType.triple;
     }
 
