@@ -51,6 +51,19 @@ public class GameManager : MonoBehaviour
         
 
     }
+    public static WeaponDefinition GetWeaponDefinition(WeaponType wt)
+    {
+        //检查对应的key是否存在于字典内
+        if (W_DEFS.ContainsKey(wt))
+        {
+            return W_DEFS[wt];
+        }
+        //如果不存在，将会返回一个WeaponType.none
+        else
+        {
+            return new WeaponDefinition();
+        }
+    }
 
     void SpawnEnemy()
     {
@@ -73,19 +86,5 @@ public class GameManager : MonoBehaviour
     public void DelayedRestart() 
     {
         Invoke("Restart", RestartTime);
-    }
-
-    public static WeaponDefinition GetWeaponDefinition(WeaponType wt) 
-    {
-        //检查对应的key是否存在于字典内
-        if (W_DEFS.ContainsKey(wt))
-        {
-            return W_DEFS[wt];
-        }
-        //如果不存在，将会返回一个WeaponType.none
-        else 
-        {
-            return new WeaponDefinition();
-        }
     }
 }

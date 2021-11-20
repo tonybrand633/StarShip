@@ -18,6 +18,27 @@ public class Enemy : MonoBehaviour
     public float height;
     public bool InScreen;
 
+    private void Awake()
+    {
+        materials = Utils.GetAllMaterial(this.gameObject);
+        originalColors = new Color[materials.Length];
+        for (int i = 0; i < materials.Length; i++)
+        {
+            originalColors[i] = materials[i].color;
+        }
+
+    }
+
+    private void Start()
+    {
+        if (bounds.size == Vector3.zero)
+        {
+            bounds = BoundsUtility.CombineBoundsOfChildren(this.gameObject);
+        }
+        //通过bounds获取敌人的高
+        height = bounds.max.y - bounds.min.y;
+    }
+
     private void Update()
     {
         Move();
@@ -41,31 +62,29 @@ public class Enemy : MonoBehaviour
         }
 
     }
-    private void Awake()
-    {
-        materials = Utils.GetAllMaterial(this.gameObject);
-        originalColors = new Color[materials.Length];
-        for (int i = 0; i < materials.Length; i++)
-        {
-            originalColors[i] = materials[i].color;
-        }
-        
-    }
 
-    private void Start()
-    {
-        if (bounds.size == Vector3.zero)
-        {
-            bounds = BoundsUtility.CombineBoundsOfChildren(this.gameObject);
-        }
-        //通过bounds获取敌人的高
-        height = bounds.max.y - bounds.min.y;
-    }
-    public virtual void Move() 
+    public virtual void Move()
     {
         Vector3 pos = transform.position;
         pos.y -= Speed * Time.deltaTime;
         transform.position = pos;
+    }
+
+    void ShowDamage()
+    {
+        foreach (Material m in materials)
+        {
+            m.color = Color.red;
+        }
+        remainingDamageFrames = showDamageForFrames;
+    }
+
+    void UnShowDamage()
+    {
+        for (int i = 0; i < materials.Length; i++)
+        {
+            materials[i].color = originalColors[i];
+        }
     }
 
     //屏幕检测，出了屏幕后销毁飞机
@@ -85,7 +104,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject other = collision.gameObject;        
 
@@ -112,20 +131,5 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void ShowDamage() 
-    {
-        foreach (Material m in materials) 
-        {
-            m.color = Color.red;
-        }
-        remainingDamageFrames = showDamageForFrames;
-    }
 
-    void UnShowDamage() 
-    {
-        for (int i = 0; i < materials.Length; i++)
-        {
-            materials[i].color = originalColors[i];
-        }
-    }
 }

@@ -4,39 +4,27 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField]
-    private WeaponType _type;
 
     BoxCollider2D col;
     public Rigidbody2D rig;
+    [SerializeField]
+    private WeaponType _type;
 
-
-    public WeaponType type 
+    public WeaponType type
     {
-        get 
+        get
         {
             return _type;
         }
-        set 
+        set
         {
             SetType(value);
         }
     }
-
-    public void SetType(WeaponType eType) 
-    {
-        _type = eType;
-        WeaponDefinition def = GameManager.GetWeaponDefinition(_type);
-        
-        //还可以进行子弹的相关操作
-    }
-
-    // Start is called before the first frame update
     void Awake()
     {
         col = GetComponent<BoxCollider2D>();
         rig = GetComponent<Rigidbody2D>();
-        
     }
 
     void Start()
@@ -44,13 +32,19 @@ public class Projectile : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
-        CheckOffScreen();              
+        CheckOffScreen();
     }
 
-    void CheckOffScreen() 
+    public void SetType(WeaponType eType)
+    {
+        _type = eType;
+        WeaponDefinition def = GameManager.GetWeaponDefinition(_type);
+
+        //还可以进行子弹的相关操作
+    }
+    void CheckOffScreen()
     {
         if (BoundsUtility.ScreenBoundsCheck(col.bounds, BoundsUtility.BoundTest.offScreen) != Vector3.zero)
         {

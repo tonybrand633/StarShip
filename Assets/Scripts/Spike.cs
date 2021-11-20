@@ -42,9 +42,6 @@ public class Spike : MonoBehaviour
         }
     }
 
-
-    public bool _______________________________________;
-
     void Awake()
     {
         S = this;
