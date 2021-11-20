@@ -8,7 +8,7 @@ public class Weapon : MonoBehaviour
 
     public bool _________________________;
     [SerializeField]
-    private WeaponType _type = WeaponType.single;
+    private WeaponType _type = WeaponType.spread;
     public WeaponType type 
     {
         get { return _type; }
@@ -56,6 +56,10 @@ public class Weapon : MonoBehaviour
         switch (type) 
         {
             case WeaponType.single:
+                p = InstantiateProjectile();
+                p.rig.velocity = Vector3.up * def.velocity;
+                break;
+            case WeaponType.spread:
                 p = InstantiateProjectile();
                 p.rig.velocity = Vector3.up * def.velocity;
                 break;
