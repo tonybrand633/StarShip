@@ -25,6 +25,10 @@ public class Spike : MonoBehaviour
     [Header("StateForShip")]
     float _shieldLevel = 1;
 
+    //武器信息
+    public bool _________________________;
+    public Weapon weapon;
+
     public float shieldLevel 
     {
         get 
@@ -46,13 +50,15 @@ public class Spike : MonoBehaviour
     {
         S = this;
         bounds = BoundsUtility.CombineBoundsOfChildren(this.gameObject);
+
+        
     }
 
     // Start is called before the first frame update
     void Start()
     {
-
-            
+        //重置武器
+        ClearWeapon();
     }
 
     // Update is called once per frame
@@ -98,13 +104,41 @@ public class Spike : MonoBehaviour
             shieldLevel--;
             Destroy(other.gameObject);
         }
-        if (other.tag=="PowerUp") 
+        if (other.tag == "PowerUp")
         {
-            
+            Debug.Log("Absorb");
+            AbsorbPowerUp(other.gameObject);
         }
-        else
+        else 
         {
             Debug.Log(other.gameObject.name);
         }
+    }
+
+    public void AbsorbPowerUp(GameObject go) 
+    {
+        PowerUp pu = go.GetComponent<PowerUp>();
+        switch (pu.type) 
+        {
+            case WeaponType.shiled:
+                shieldLevel++;
+                break;
+            case WeaponType.ammoUp:
+                if (weapon!=null) 
+                {
+                    if (weapon.type!=WeaponType.triple) 
+                    {
+                        weapon.type++;
+                    }
+                   
+                }
+                break;
+        }
+        pu.AbsoredBy(this.gameObject);
+    }
+
+    void ClearWeapon() 
+    {
+        weapon.SetType(WeaponType.single);
     }
 }

@@ -17,7 +17,10 @@ public class WeaponDefinition
 
 public enum WeaponType
 {
+    none,
+    ammoUp,
     single,
     spread,//两发炮弹
-    triple
+    triple,
+    shiled
 }

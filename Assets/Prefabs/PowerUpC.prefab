@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 1290293433031072037}
   - component: {fileID: 1290293433031072038}
   m_Layer: 13
-  m_Name: ShieldUp
-  m_TagString: PowerUP
+  m_Name: PowerUpC
+  m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -169,7 +169,7 @@ MonoBehaviour:
   existTime: 0
   birthTime: 0
   fadingTime: 2
-  type: 0
+  type: 1
   driftMaxMin: {x: 0.25, y: 2}
   u: 0
   v: 0

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8727060850875799611}
   m_Layer: 13
   m_Name: PowerUpA
-  m_TagString: PowerUP
+  m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -164,12 +164,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e62b5b9e8055c41459d269e270b30567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 0
-  fadeTime: 0
+  lifeTime: 3
+  fadeTime: 2
   existTime: 0
   birthTime: 0
-  fadingTime: 0
-  type: 0
+  fadingTime: 1
+  type: 4
   driftMaxMin: {x: 0.25, y: 2}
   u: 0
   v: 0

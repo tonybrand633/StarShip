@@ -64,6 +64,10 @@ public class Weapon : MonoBehaviour
                 p = InstantiateProjectile();
                 p.rig.velocity = Vector3.up * def.velocity;
                 break;
+            case WeaponType.triple:
+                p = InstantiateProjectile();
+                p.rig.velocity = Vector3.up * def.velocity;
+                break;
                 
         }
     }

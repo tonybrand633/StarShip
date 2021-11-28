@@ -56,18 +56,40 @@ public class PowerUp : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+        //fadingTime后开始隐藏，隐藏到无的时间为fadeTime
         v = (existTime - birthTime - fadingTime) / fadeTime;
         if (v>0) 
         {
             Color c = mat.color;
             c.a = 1 - v;
-            mat.color = c;
+            mat.color = c;            
+        }
+        if (v >= 1)
+        {
+            Destroy(gameObject);
+            return;
         }
     }
+
+    //SetType?
+    public void SetType(WeaponType wt) 
+    {
+        WeaponDefinition def = GameManager.GetWeaponDefinition(wt);
+        //其余的都是一些对于显示的操作
+        type = wt;
+    }
+
+
     void CheckOffScreen() { 
         if (BoundsUtility.ScreenBoundsCheck(col.bounds,BoundsUtility.BoundTest.offScreen)!=Vector3.zero) 
         {
             Destroy(this.gameObject);
         }
+    }
+
+    public void AbsoredBy(GameObject target) 
+    {
+        //在Spike类收集道具之后调用本函数
+        Destroy(this.gameObject);
     }
 }
