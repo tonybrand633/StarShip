@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
     public Color[] originalColors;
     public Material[] materials;
     public int remainingDamageFrames = 0;//剩余的伤害效果帧数
+    public float powerUpDropChance = 0.2f;//掉落升级道具的概率
+
     
     public int Coins = 1;//玩家击杀后获得的金币
 
@@ -106,13 +108,12 @@ public class Enemy : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        GameObject other = collision.gameObject;        
-
+        GameObject other = collision.gameObject;
+        Debug.Log(other.name);
         switch (other.tag)
         {
             case "ProjectileHero":
                 Projectile p = other.GetComponent<Projectile>();
-                //Debug.Log(p.type.ToString());
                 //让敌机在进入屏幕之前不受伤害
                 if (!InScreen)
                 {
@@ -124,6 +125,7 @@ public class Enemy : MonoBehaviour
                 ShowDamage();
                 if (health <= 0)
                 {
+                    GameManager.S.ShipDestoryed(this);
                     Destroy(this.gameObject);
                 }
                 Destroy(other);

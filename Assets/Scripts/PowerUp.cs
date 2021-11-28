@@ -12,7 +12,7 @@ public class PowerUp : MonoBehaviour
     public float birthTime;
     public float fadingTime;
     public WeaponType type;
-    public Vector2 driftMaxMin = new Vector2(0.25f, 2);
+    public Vector2 driftMaxMin = new Vector2(0.25f, 1);
     public float u;
     public float v;
 

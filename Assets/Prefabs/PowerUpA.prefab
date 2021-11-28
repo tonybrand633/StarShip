@@ -169,8 +169,8 @@ MonoBehaviour:
   existTime: 0
   birthTime: 0
   fadingTime: 1
-  type: 4
-  driftMaxMin: {x: 0.25, y: 2}
+  type: 5
+  driftMaxMin: {x: 0.25, y: 1}
   u: 0
   v: 0
   powerUp: {fileID: 0}

@@ -129,6 +129,7 @@ MonoBehaviour:
   originalColors: []
   materials: []
   remainingDamageFrames: 0
+  powerUpDropChance: 0.2
   Coins: 1
   bounds:
     m_Center: {x: 0, y: 0, z: 0}

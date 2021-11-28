@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     public float SpawnRate;
     public float SpawnPadding;
     public float RestartTime;
+    public GameObject[]prefabPowerUp;
+    public WeaponType[] powerUpFrequency = new WeaponType[] { WeaponType.ammoUp, WeaponType.shiled };
+
 
     public GameObject[] enemyObjects;
 
@@ -86,5 +89,22 @@ public class GameManager : MonoBehaviour
     public void DelayedRestart() 
     {
         Invoke("Restart", RestartTime);
+    }
+
+    public void ShipDestoryed(Enemy e) 
+    {
+        if (Random.value<=e.powerUpDropChance) 
+        {
+            //在这里Random.value生成一个0到1之间的数字
+            int indx = Random.Range(0, powerUpFrequency.Length);
+            WeaponType puType = powerUpFrequency[indx];
+            //生成道具
+            GameObject go = Instantiate(prefabPowerUp[indx]) as GameObject;
+            PowerUp pu = go.GetComponent<PowerUp>();
+            //设置正确的武器类型
+            pu.SetType(puType);
+            //将其位置摆放在消灭敌人飞机的位置
+            pu.transform.position = e.transform.position;        
+        }
     }
 }
