@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
     public float height;
     public bool InScreen;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         materials = Utils.GetAllMaterial(this.gameObject);
         originalColors = new Color[materials.Length];
@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
 
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         if (bounds.size == Vector3.zero)
         {
@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
         height = bounds.max.y - bounds.min.y;
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         Move();
         bounds.center = transform.position;
@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
         {
             InScreen = true;
         }
-        if (InScreen == true) 
+        if (InScreen == true)
         {
             CheckOffScreen();
         }
@@ -63,6 +63,7 @@ public class Enemy : MonoBehaviour
             }
         }
 
+
     }
 
     public virtual void Move()
@@ -70,6 +71,7 @@ public class Enemy : MonoBehaviour
         Vector3 pos = transform.position;
         pos.y -= Speed * Time.deltaTime;
         transform.position = pos;
+        
     }
 
     void ShowDamage()

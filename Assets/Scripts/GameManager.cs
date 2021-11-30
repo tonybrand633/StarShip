@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
             W_DEFS[def.type] = def;
         }
         camBounds = BoundsUtility.camBounds;
-        Invoke("SpawnEnemy", SpawnRate);
+        //SpawnEnemy();
     }
 
     // Start is called before the first frame update

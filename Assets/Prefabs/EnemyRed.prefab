@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7545801821835008236}
   - component: {fileID: 7545801821835008239}
   - component: {fileID: 7545801821835008237}
-  - component: {fileID: 7545801821835008234}
+  - component: {fileID: 4315121404470667561}
   m_Layer: 10
   m_Name: EnemyRed
   m_TagString: Enemy
@@ -110,7 +110,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1067024, y: 0.697582}
   m_EdgeRadius: 0
---- !u!114 &7545801821835008234
+--- !u!114 &4315121404470667561
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,12 +119,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7545801821835008238}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c95be992850fce34eb3f3be65af649a4, type: 3}
+  m_Script: {fileID: 11500000, guid: 785d24eb0d3adb341876f160d128cc52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 2
   fireRate: 0.3
-  health: 15
+  health: 10
   showDamageForFrames: 20
   originalColors: []
   materials: []
