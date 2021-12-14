@@ -123,14 +123,22 @@ public class Spike : MonoBehaviour
             case WeaponType.shiled:
                 shieldLevel++;
                 break;
-            case WeaponType.ammoUp:
+            case WeaponType.single:
                 if (weapon!=null) 
                 {
-                    if (weapon.type!=WeaponType.triple) 
-                    {
-                        weapon.type++;
-                    }
-                   
+                    weapon.type = WeaponType.single;                    
+                }
+                break;
+            case WeaponType.spread:
+                if (weapon!=null) 
+                {
+                    weapon.type = WeaponType.spread;                    
+                }
+                break;
+            case WeaponType.triple:
+                if (weapon!=null) 
+                {
+                    weapon.type = WeaponType.triple;
                 }
                 break;
         }

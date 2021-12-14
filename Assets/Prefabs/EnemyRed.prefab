@@ -136,3 +136,8 @@ MonoBehaviour:
     m_Extent: {x: 0, y: 0, z: 0}
   height: 0
   InScreen: 0
+  waveFrequency: 2
+  waveWidth: 2
+  waveRotY: 45
+  x0: -12345
+  birthTime: 0

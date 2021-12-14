@@ -72,6 +72,8 @@ public class GameManager : MonoBehaviour
     {
         int index = Random.Range(0, enemyObjects.Length);
         GameObject go = Instantiate(enemyObjects[index]);
+        string name = go.name;
+        Debug.Log(name);
         float xRange = Random.Range(camBounds.min.x+0.4f, camBounds.max.x-0.4f);
         float yRange = camBounds.max.y + SpawnPadding;
         

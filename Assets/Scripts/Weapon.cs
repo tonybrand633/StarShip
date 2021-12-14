@@ -74,7 +74,7 @@ public class Weapon : MonoBehaviour
 
     public Projectile InstantiateProjectile() 
     {
-        GameObject go = Instantiate(def.Projectile) as GameObject;
+           GameObject go = Instantiate(def.Projectile) as GameObject;
         if (transform.parent.gameObject.tag == "Hero")
         {
             go.tag = "ProjectileHero";

@@ -233,7 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rig: {fileID: 0}
-  _type: 1
+  _type: 3
 --- !u!61 &2934646106937828289
 BoxCollider2D:
   m_ObjectHideFlags: 0
