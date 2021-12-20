@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Enemy_01 :Enemy
 {
+    
+    //正弦曲线的宽度
+    [Header("正弦运动")]
     //做完一个完整周期的正弦曲线的时间
     public float waveFrequency = 2;
-    //正弦曲线的宽度
     public float waveWidth = 4;
     public float waveRotY = 45;
     public float x0 = -12345;

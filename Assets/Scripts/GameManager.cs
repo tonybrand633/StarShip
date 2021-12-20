@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
             W_DEFS[def.type] = def;
         }
         camBounds = BoundsUtility.camBounds;
-        //SpawnEnemy();
+        SpawnEnemy();
     }
 
     // Start is called before the first frame update
@@ -74,8 +74,19 @@ public class GameManager : MonoBehaviour
         GameObject go = Instantiate(enemyObjects[index]);
         string name = go.name;
         Debug.Log(name);
-        float xRange = Random.Range(camBounds.min.x+0.4f, camBounds.max.x-0.4f);
-        float yRange = camBounds.max.y + SpawnPadding;
+        float xRange;
+        float yRange;
+        if (name == "EnemyRed")
+        {
+            xRange = Random.Range(camBounds.min.x + 2f, camBounds.max.x - 2f);
+            yRange = camBounds.max.y + SpawnPadding;
+        }
+        else 
+        {
+            xRange = Random.Range(camBounds.min.x + 0.4f, camBounds.max.x - 0.4f);
+            yRange = camBounds.max.y + SpawnPadding;
+        }
+        
         
         Vector3 pos = Vector3.zero;
         pos = new Vector3(xRange, yRange, 0);
