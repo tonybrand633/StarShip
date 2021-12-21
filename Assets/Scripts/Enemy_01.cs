@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Enemy_01 :Enemy
 {
-    
     //正弦曲线的宽度
     [Header("正弦运动")]
     //做完一个完整周期的正弦曲线的时间
@@ -16,6 +15,7 @@ public class Enemy_01 :Enemy
     // Start is called before the first frame update
     protected override void Start()
     {
+        enemyType = EnemyCollection.EnemyRed;
         x0 = transform.position.x;
         birthTime = Time.time;
         base.Start();

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public static EnemyCollection enemyType;
+
     public float Speed = 10f;
     public float fireRate = 0.3f;
     public float health = 10;
@@ -72,6 +74,11 @@ public class Enemy : MonoBehaviour
         pos.y -= Speed * Time.deltaTime;
         transform.position = pos;
         
+    }
+
+    public EnemyCollection GetEnemyType() 
+    {
+        return enemyType;
     }
 
     void ShowDamage()

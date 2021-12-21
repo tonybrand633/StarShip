@@ -65,6 +65,19 @@ public class BoundsUtility : MonoBehaviour
 
     //创建相机的Bounds属性
     static Bounds _camBounds;
+    static Bounds _backBounds;
+
+    public static Bounds backBounds 
+    {
+        get 
+        {
+            if (_backBounds.size==Vector3.zero) 
+            {
+                SetBackBounds();
+            }
+            return _backBounds;
+        }
+    }
     public static Bounds camBounds
     {
         get
@@ -75,6 +88,32 @@ public class BoundsUtility : MonoBehaviour
             }
             return _camBounds;
         }
+    }
+
+    public static void SetBackBounds(Camera cam = null)
+    {
+        if (cam == null)
+        {
+            cam = Camera.main;
+        }
+
+        //根据左上角和右下角坐标创建两个三维向量
+        Vector3 topRight = new Vector3(0, 0, 0);
+        Vector3 bottomLeft = new Vector3(Screen.width/2, Screen.height, 0);
+
+        //把这两个三维向量的坐标从屏幕坐标转为世界坐标
+        Vector3 topTO = cam.ScreenToWorldPoint(topRight);
+        Vector3 bottomBO = cam.ScreenToWorldPoint(bottomLeft);
+
+        //找到相机的中点
+        topTO.z += cam.nearClipPlane;
+        bottomBO.z += cam.farClipPlane;
+        Vector3 center = (topTO + bottomBO) / 2;
+        _backBounds = new Bounds(center, Vector3.zero);
+        //使得相机的边界框扩展到对应的点
+        _backBounds.Encapsulate(topTO);
+        _backBounds.Encapsulate(bottomBO);
+
     }
 
     //设置相机的Bounds属性
@@ -108,6 +147,11 @@ public class BoundsUtility : MonoBehaviour
     public static Vector3 ScreenBoundsCheck(Bounds bnd, BoundTest test = BoundTest.onScreen)
     {
         return BoundInBoundCheck(camBounds, bnd);
+    }
+
+    public static Vector3 BackBoundsCheck(Bounds bnd, BoundTest test = BoundTest.onScreen) 
+    {
+        return BoundInBoundCheck(backBounds, bnd);
     }
 
     //根据枚举的情况检查边界框bnd是否位于camBounds之内
@@ -200,10 +244,8 @@ public class BoundsUtility : MonoBehaviour
     {
         if (camBounds.Contains(bounds.max) || camBounds.Contains(bounds.min))
         {
-            //Debug.Log("True");
             return true;
-        }
-        //Debug.Log("False");
+        }        
         return false;
     }
 

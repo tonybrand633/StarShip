@@ -19,12 +19,12 @@ public class GameManager : MonoBehaviour
     public GameObject[] enemyObjects;
 
     Bounds camBounds;
+    Bounds backBounds;
 
     [Header("武器控制")]
     public WeaponDefinition[] weaponDefinitions;
-
-
     public WeaponType[] activeWeaponTypes;
+
 
     private void Awake()
     {
@@ -34,7 +34,8 @@ public class GameManager : MonoBehaviour
         {
             W_DEFS[def.type] = def;
         }
-        camBounds = BoundsUtility.camBounds;
+        backBounds = BoundsUtility.backBounds;
+        //camBounds = BoundsUtility.camBounds;
         SpawnEnemy();
     }
 
@@ -73,22 +74,21 @@ public class GameManager : MonoBehaviour
         int index = Random.Range(0, enemyObjects.Length);
         GameObject go = Instantiate(enemyObjects[index]);
         string name = go.name;
-        Debug.Log(name);
         float xRange;
         float yRange;
-        if (name == "EnemyRed")
+        if (go.GetComponent<Enemy>().GetEnemyType()==EnemyCollection.EnemyRed)
         {
-            xRange = Random.Range(camBounds.min.x + 2f, camBounds.max.x - 2f);
-            yRange = camBounds.max.y + SpawnPadding;
+            xRange = Random.Range(backBounds.min.x + 4f, backBounds.max.x - 4f);            
+            yRange = backBounds.max.y + SpawnPadding;
         }
         else 
         {
-            xRange = Random.Range(camBounds.min.x + 0.4f, camBounds.max.x - 0.4f);
-            yRange = camBounds.max.y + SpawnPadding;
+            xRange = Random.Range(backBounds.min.x + 0.4f, backBounds.max.x - 0.4f);
+            yRange = backBounds.max.y + SpawnPadding;
         }
         
         
-        Vector3 pos = Vector3.zero;
+        Vector3 pos;
         pos = new Vector3(xRange, yRange, 0);
         go.transform.position = pos;
         Invoke("SpawnEnemy", SpawnRate);

@@ -76,7 +76,7 @@ public class Spike : MonoBehaviour
 
         //Bounds检测使飞船保持在屏幕内,bounds不会随着位置实时更新
         bounds.center = transform.position;
-        Vector3 offset = BoundsUtility.ScreenBoundsCheck(bounds);
+        Vector3 offset = BoundsUtility.BackBoundsCheck(bounds);
         if (offset != Vector3.zero)
         {
             pos -= offset;
