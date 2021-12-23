@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
     public float height;
     public bool InScreen;
 
-    protected virtual void Awake()
+    void Awake()
     {
         materials = Utils.GetAllMaterial(this.gameObject);
         originalColors = new Color[materials.Length];
@@ -35,6 +35,7 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Start()
     {
+        Debug.Log("Start");
         if (bounds.size == Vector3.zero)
         {
             bounds = BoundsUtility.CombineBoundsOfChildren(this.gameObject);
@@ -101,7 +102,7 @@ public class Enemy : MonoBehaviour
     //屏幕检测，出了屏幕后销毁飞机
     void CheckOffScreen()
     {
-        Vector3 offset = BoundsUtility.ScreenBoundsCheck(bounds, BoundsUtility.BoundTest.offScreen);
+        Vector3 offset = BoundsUtility.BackBoundsCheck(bounds, BoundsUtility.BoundTest.offScreen);
 
        
         if (offset != Vector3.zero) 
