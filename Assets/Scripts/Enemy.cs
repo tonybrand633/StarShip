@@ -35,7 +35,6 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Start()
     {
-        Debug.Log("Start");
         if (bounds.size == Vector3.zero)
         {
             bounds = BoundsUtility.CombineBoundsOfChildren(this.gameObject);
@@ -119,7 +118,7 @@ public class Enemy : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject other = collision.gameObject;
-        Debug.Log(other.name);
+        //Debug.Log(other.name);
         switch (other.tag)
         {
             case "ProjectileHero":

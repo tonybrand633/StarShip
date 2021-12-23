@@ -7,7 +7,6 @@ public class Enemy_02 : Enemy
     // Start is called before the first frame update
      protected override void Start()
     {
-        Debug.Log("Child Start");
         base.Start();     
     }
 

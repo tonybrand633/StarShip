@@ -178,40 +178,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyYellow
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1134401438, guid: 710c72c49ec83a24ea6266e0872c73a9, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 710c72c49ec83a24ea6266e0872c73a9, type: 3}
---- !u!1 &402527867 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8385631828690253762, guid: 710c72c49ec83a24ea6266e0872c73a9, type: 3}
-  m_PrefabInstance: {fileID: 195399355}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &402527868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 402527867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e6a35b80955a064dba0f65c6dc4d8ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 10
-  fireRate: 0.3
-  health: 10
-  showDamageForFrames: 2
-  originalColors: []
-  materials: []
-  remainingDamageFrames: 0
-  powerUpDropChance: 0.2
-  Coins: 1
-  bounds:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
-  height: 0
-  InScreen: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

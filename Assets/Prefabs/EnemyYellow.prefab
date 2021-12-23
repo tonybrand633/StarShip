@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8385631828690253760}
   - component: {fileID: 8385631828690253761}
   - component: {fileID: 8385631828690253823}
-  - component: {fileID: 1134401438}
+  - component: {fileID: 402527868}
   m_Layer: 10
   m_Name: EnemyYellow
   m_TagString: Enemy
@@ -110,7 +110,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1037095, y: 0.6476755}
   m_EdgeRadius: 0
---- !u!114 &1134401438
+--- !u!114 &402527868
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,13 +119,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8385631828690253762}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c95be992850fce34eb3f3be65af649a4, type: 3}
+  m_Script: {fileID: 11500000, guid: 9e6a35b80955a064dba0f65c6dc4d8ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 2
+  Speed: 10
   fireRate: 0.3
-  health: 20
-  showDamageForFrames: 20
+  health: 10
+  showDamageForFrames: 2
   originalColors: []
   materials: []
   remainingDamageFrames: 0

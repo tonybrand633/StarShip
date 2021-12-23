@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
         }
         backBounds = BoundsUtility.backBounds;
         //camBounds = BoundsUtility.camBounds;
-        //SpawnEnemy();
+        SpawnEnemy();
     }
 
     // Start is called before the first frame update
@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
     {
         int index = Random.Range(0, enemyObjects.Length);
         GameObject go = Instantiate(enemyObjects[index]);
-        string name = go.name;
+
         float xRange;
         float yRange;
         if (go.GetComponent<Enemy>().GetEnemyType()==EnemyCollection.EnemyRed)
