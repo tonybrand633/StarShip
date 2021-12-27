@@ -48,7 +48,7 @@ public class Cyclic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        radians = Time.time * Mathf.PI;
+        radians = Time.time*2;
         theta = Mathf.Round(radians * Mathf.Rad2Deg) % 360;
 
         pos = Vector3.zero;

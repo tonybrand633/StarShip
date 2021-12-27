@@ -122,17 +122,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e6a35b80955a064dba0f65c6dc4d8ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 10
+  Speed: 0.4
   fireRate: 0.3
   health: 10
-  showDamageForFrames: 2
   originalColors: []
   materials: []
+  showDamageForFrames: 20
   remainingDamageFrames: 0
   powerUpDropChance: 0.2
   Coins: 1
-  bounds:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
   height: 0
   InScreen: 0
+  StartCalculate: 0
+  Moving: 0
+  lifeTime: 6
+  birthTime: 0
+  birthOffset: 0.4
+  u1: 0
+  loop: 2
+  isIncrease: 0
+  sinRes: 0
