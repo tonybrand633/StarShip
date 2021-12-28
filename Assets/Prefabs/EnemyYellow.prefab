@@ -133,6 +133,9 @@ MonoBehaviour:
   Coins: 1
   height: 0
   InScreen: 0
+  t0: {fileID: 0}
+  t1: {fileID: 0}
+  angle: 0
   StartCalculate: 0
   Moving: 0
   lifeTime: 6

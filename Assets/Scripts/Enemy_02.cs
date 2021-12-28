@@ -5,7 +5,13 @@ using UnityEngine;
 public class Enemy_02 : Enemy
 {
     Vector3[] birthPos;
+    [Header("出生点")]
+    public Transform t0;
+    public Transform t1;
+    public float angle;
+
     [SerializeField]
+
     [Header("正弦线性插值")]
     public bool StartCalculate;
     public bool Moving;
@@ -43,6 +49,7 @@ public class Enemy_02 : Enemy
     // Start is called before the first frame update
      protected override void Start()
     {
+        
         enemyType = EnemyCollection.EnemyYellow;
         birthPos = new Vector3[2];
         GetBirthPos();
@@ -99,6 +106,8 @@ public class Enemy_02 : Enemy
             p2 = Random.Range(p1, (backMax + backMin) / 4 * 3);
         }
         birthPos[1] = new Vector3(BoundsUtility.backBounds.min.x-birthOffset, p2, 0);
+        t0.position = birthPos[0];
+        t1.position = birthPos[1];
     }
 
     void ChangeForward() 
@@ -108,13 +117,24 @@ public class Enemy_02 : Enemy
         
         if (isIncrease)
         {
-            this.transform.eulerAngles = new Vector3(0f, 0f, 0f);
+            Vector3 relative = t0.transform.InverseTransformPoint(t1.position);
+            angle = Mathf.Atan2(relative.x, relative.y) * Mathf.Rad2Deg;
+            this.transform.eulerAngles = new Vector3(0, 0, -180+angle);
+            //float angle = Mathf.Atan2(dir.y, dir.x)*Mathf.Rad2Deg;
+            //this.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            //this.transform.eulerAngles = new Vector3(0f, 0f, 0f);
             //rotation.eulerAngles = new Vector3(0f, 0f, 0f);
             //this.transform.rotation = rotation;
         }
         else 
         {
-            this.transform.eulerAngles = new Vector3(0f, 0f, 180f);
+            Vector3 relative = t1.transform.InverseTransformPoint(t0.position);
+            angle = Mathf.Atan2(relative.x, relative.y) * Mathf.Rad2Deg;
+            this.transform.eulerAngles = new Vector3(0, 0, -180+angle);
+            //Vector3 dir = birthPos[1] - birthPos[0];
+            //float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            //this.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            //this.transform.eulerAngles = new Vector3(0f, 0f, 180f);
             //rotation.eulerAngles = new Vector3(0f, 0f, 180f);
             //this.transform.rotation = rotation;
         }
