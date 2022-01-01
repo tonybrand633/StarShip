@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy_02 : Enemy
 {
+    //Enemy_02使用的是正弦+线性运动
     Vector3[] birthPos;
     [Header("出生点")]
     public Transform t0;
@@ -69,7 +70,7 @@ public class Enemy_02 : Enemy
             birthTime = Time.time;
         }
         base.Update();
-        ChangeForward();
+        //ChangeForward();
     }
 
     public override void Move()
@@ -77,7 +78,7 @@ public class Enemy_02 : Enemy
         float u = (Time.time - birthTime) / lifeTime;
         if (u >= 1)
         {
-            Destroy(this.gameObject);
+            ParentDestroy(this.gameObject);
             return;
         }
         else 
@@ -117,7 +118,7 @@ public class Enemy_02 : Enemy
         
         if (isIncrease)
         {
-            Vector3 relative = t0.transform.InverseTransformPoint(t1.position);
+            Vector3 relative = t1.transform.InverseTransformPoint(t0.position);
             angle = Mathf.Atan2(relative.x, relative.y) * Mathf.Rad2Deg;
             this.transform.eulerAngles = new Vector3(0, 0, -180+angle);
             //float angle = Mathf.Atan2(dir.y, dir.x)*Mathf.Rad2Deg;
@@ -128,7 +129,7 @@ public class Enemy_02 : Enemy
         }
         else 
         {
-            Vector3 relative = t1.transform.InverseTransformPoint(t0.position);
+            Vector3 relative = t0.transform.InverseTransformPoint(t1.position);
             angle = Mathf.Atan2(relative.x, relative.y) * Mathf.Rad2Deg;
             this.transform.eulerAngles = new Vector3(0, 0, -180+angle);
             //Vector3 dir = birthPos[1] - birthPos[0];
@@ -139,4 +140,6 @@ public class Enemy_02 : Enemy
             //this.transform.rotation = rotation;
         }
     }
+
+
 }

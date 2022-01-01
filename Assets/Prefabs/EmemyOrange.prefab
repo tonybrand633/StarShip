@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2125251072972090311}
   - component: {fileID: 2125251072972090310}
   - component: {fileID: 2125251072972090304}
-  - component: {fileID: 393243930}
+  - component: {fileID: 730533}
   m_Layer: 10
   m_Name: EmemyOrange
   m_TagString: Enemy
@@ -110,7 +110,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.82, y: 0.74064636}
   m_EdgeRadius: 0
---- !u!114 &393243930
+--- !u!114 &730533
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,20 +119,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 2125251072972090309}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c95be992850fce34eb3f3be65af649a4, type: 3}
+  m_Script: {fileID: 11500000, guid: 19658ebee7c0f914384245b009539f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 2
+  enemyType: 0
+  Speed: 10
   fireRate: 0.3
   health: 10
-  showDamageForFrames: 20
   originalColors: []
   materials: []
+  showDamageForFrames: 2
   remainingDamageFrames: 0
   powerUpDropChance: 0.2
   Coins: 1
-  bounds:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
   height: 0
   InScreen: 0
+  points: []
+  birthTime: 0
+  LifeTime: 5

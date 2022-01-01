@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy_01 :Enemy
 {
+    //Enemy_01使用的是正弦运动
     //正弦曲线的宽度
     [Header("正弦运动")]
     //做完一个完整周期的正弦曲线的时间
@@ -12,6 +13,7 @@ public class Enemy_01 :Enemy
     public float waveRotY = 45;
     public float x0 = -12345;
     public float birthTime;
+
     // Start is called before the first frame update
     protected override void Start()
     {

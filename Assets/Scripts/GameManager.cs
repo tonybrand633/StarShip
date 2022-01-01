@@ -76,7 +76,8 @@ public class GameManager : MonoBehaviour
 
         float xRange;
         float yRange;
-        if (go.GetComponent<Enemy>().GetEnemyType()==EnemyCollection.EnemyRed)
+        Enemy e = go.GetComponentInChildren<Enemy>();
+        if (e.GetEnemyType()==EnemyCollection.EnemyRed)
         {
             xRange = Random.Range(backBounds.min.x + 4f, backBounds.max.x - 4f);            
             yRange = backBounds.max.y + SpawnPadding;

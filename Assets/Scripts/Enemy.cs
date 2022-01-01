@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public static EnemyCollection enemyType;
     [SerializeField]
+    public EnemyCollection enemyType;
     [Header("基础属性")]    
     public float Speed = 10f;
     public float fireRate = 0.3f;
@@ -126,7 +126,7 @@ public class Enemy : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject other = collision.gameObject;
-        Debug.Log(other.name);
+        //Debug.Log(other.name);
         switch (other.tag)
         {
             case "ProjectileHero":
@@ -142,13 +142,37 @@ public class Enemy : MonoBehaviour
                 ShowDamage();
                 if (health <= 0)
                 {
-                    GameManager.S.ShipDestoryed(this);
-                    Destroy(this.gameObject);
+                    Debug.Log(enemyType);
+                    switch (enemyType) 
+                    {                        
+                        case EnemyCollection.EnemyRed:
+                            GameManager.S.ShipDestoryed(this);
+                            //Debug.Log("RedDestroy");
+                            Destroy(this.gameObject);
+                            break;
+                        case EnemyCollection.EnemyBlue:
+                            GameManager.S.ShipDestoryed(this);
+                            Destroy(this.gameObject);
+                            break;
+                        case EnemyCollection.EnemyYellow:
+                            GameManager.S.ShipDestoryed(this);
+                            ParentDestroy(this.gameObject);
+                            break;
+                        default:
+                            GameManager.S.ShipDestoryed(this);
+                            Destroy(this.gameObject);
+                            break;
+                    }
                 }
                 Destroy(other);
                 break;
         }
     }
 
-
+    public void ParentDestroy(GameObject go)
+    {
+        Debug.Log("ParentDestoryed");
+        GameObject parent = go.transform.parent.gameObject;        
+        Destroy(parent);
+    }
 }
