@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class Part 
+{
+    
+}
+
 public class Enemy_04 : Enemy
 {    
     [Header("循环运动")]
