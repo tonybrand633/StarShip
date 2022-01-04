@@ -6,5 +6,6 @@ public enum EnemyCollection
 {
     EnemyRed,
     EnemyYellow,
-    EnemyBlue
+    EnemyBlue,
+    EnemyPurple
 }

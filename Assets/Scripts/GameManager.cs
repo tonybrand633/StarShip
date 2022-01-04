@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
         }
         backBounds = BoundsUtility.backBounds;
         //camBounds = BoundsUtility.camBounds;
-        SpawnEnemy();
+        //SpawnEnemy();
     }
 
     // Start is called before the first frame update
