@@ -5,7 +5,10 @@ using UnityEngine;
 [System.Serializable]
 public class Part 
 {
-    
+    //下面三个字段需要在面板进行定义
+    public string name;
+    public float health;
+    public string[] protectedBy;
 }
 
 public class Enemy_04 : Enemy
