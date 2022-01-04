@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 5652643316765816953}
   - component: {fileID: 5652643316765816950}
   m_Layer: 10
-  m_Name: idle_orb_red (1)
+  m_Name: idle_orb_redR
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -135,7 +135,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5652643316765816955}
   m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: 0.83, y: 0, z: 0}
+  m_LocalPosition: {x: -0.72, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5652643317294210780}
@@ -180,7 +180,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1033139549
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 4c8a2444f139c1447b5bd181110e264b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 5652643317009122706}
   - component: {fileID: 5652643317009122707}
   m_Layer: 10
-  m_Name: idle_orb_red
+  m_Name: idle_orb_redL
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -244,7 +244,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5652643317009122708}
   m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: -0.72, y: 0, z: 0}
+  m_LocalPosition: {x: 0.779, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5652643317294210780}
@@ -289,7 +289,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1033139549
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 4c8a2444f139c1447b5bd181110e264b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -336,8 +336,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5652643317294210780}
-  - component: {fileID: 5652643317294210778}
   - component: {fileID: 1946043568}
+  - component: {fileID: 1714637632}
   m_Layer: 10
   m_Name: EnemyBastard
   m_TagString: Enemy
@@ -362,31 +362,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5652643317294210778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5652643317294210783}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c95be992850fce34eb3f3be65af649a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 2
-  fireRate: 0.3
-  health: 30
-  showDamageForFrames: 20
-  originalColors: []
-  materials: []
-  remainingDamageFrames: 0
-  Coins: 1
-  bounds:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
-  height: 0
-  InScreen: 0
 --- !u!61 &1946043568
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -413,3 +388,32 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.3389258, y: 0.7803006}
   m_EdgeRadius: 0
+--- !u!114 &1714637632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5652643317294210783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00996e5da09ef804a8d35a17c941771f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyType: 0
+  Speed: 5
+  fireRate: 0.3
+  health: 20
+  originalColors: []
+  materials: []
+  showDamageForFrames: 2
+  remainingDamageFrames: 0
+  powerUpDropChance: 0.2
+  Coins: 1
+  height: 0
+  InScreen: 0
+  points: []
+  StartTime: 0
+  DurationTime: 3
+  selfLength: 1.5
+  u: 0
