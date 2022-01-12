@@ -13,11 +13,16 @@ public class Enemy_03 : Enemy
     // Start is called before the first frame update
     protected override void Start()
     {
+        //初始化敌人类型
+        enemyType = EnemyCollection.EnemyYellow;
+
+        //初始化运动所需的点points[0]为本身的位置
         points = new Vector3[3];
         points[0] = transform.position;
 
         float MaxX = BoundsUtility.backBounds.max.x;
         float MinX = BoundsUtility.backBounds.min.x;
+
         Vector3 v;
         //points[1]为屏幕下方的一点
         v = Vector3.zero;

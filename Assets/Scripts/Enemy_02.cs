@@ -50,8 +50,10 @@ public class Enemy_02 : Enemy
     // Start is called before the first frame update
      protected override void Start()
     {
-        
+        //初始化敌人类型
         enemyType = EnemyCollection.EnemyYellow;
+
+        //初始化运动所需的点
         birthPos = new Vector3[2];
         GetBirthPos();
         base.Start();

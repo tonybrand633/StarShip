@@ -17,7 +17,10 @@ public class Enemy_01 :Enemy
     // Start is called before the first frame update
     protected override void Start()
     {
+        //初始化敌人类型
         enemyType = EnemyCollection.EnemyRed;
+
+        //取得运动之前x的坐标
         x0 = transform.position.x;
         birthTime = Time.time;
         base.Start();

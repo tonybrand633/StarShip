@@ -54,8 +54,16 @@ public class Enemy : MonoBehaviour
     protected virtual void Update()
     {
         Move();
+        CheckOffScreen();
+        DisplayDamage();
+
+        
+    }
+
+    public void CheckScreen() 
+    {
         bounds.center = transform.position;
-        if (BoundsUtility.isInCamera(bounds))
+        if (BoundsUtility.isInBackGround(bounds))
         {
             InScreen = true;
         }
@@ -63,17 +71,18 @@ public class Enemy : MonoBehaviour
         {
             CheckOffScreen();
         }
+    }
 
-        if (remainingDamageFrames>0) 
+    public void DisplayDamage() 
+    {
+        if (remainingDamageFrames > 0)
         {
             remainingDamageFrames--;
-            if (remainingDamageFrames==0) 
+            if (remainingDamageFrames == 0)
             {
                 UnShowDamage();
             }
         }
-
-
     }
 
     public virtual void Move()

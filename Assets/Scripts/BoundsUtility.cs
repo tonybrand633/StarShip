@@ -239,6 +239,15 @@ public class BoundsUtility : MonoBehaviour
         return offset;
     }
 
+    public static bool isInBackGround(Bounds bounds) 
+    {
+        if (backBounds.Contains(bounds.max)||backBounds.Contains(bounds.min)) 
+        {
+            return true;
+        }
+        return false;
+    }
+
     //物体是否进入相机内
     public static bool isInCamera(Bounds bounds)
     {
