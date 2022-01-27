@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 7545801821835008238}
   m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
   m_LocalPosition: {x: 0, y: 0.96, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -122,22 +122,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 785d24eb0d3adb341876f160d128cc52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 2
+  enemyType: 0
+  Speed: 30
   fireRate: 0.3
   health: 10
-  showDamageForFrames: 20
   originalColors: []
   materials: []
+  showDamageForFrames: 20
   remainingDamageFrames: 0
   powerUpDropChance: 0.2
-  Coins: 1
-  bounds:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
+  Coins: 10
   height: 0
   InScreen: 0
   waveFrequency: 1.5
-  waveWidth: 0.9
+  waveWidth: 6
   waveRotY: 45
   x0: -12345
   birthTime: 0

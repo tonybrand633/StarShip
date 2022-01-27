@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
         }
         backBounds = BoundsUtility.backBounds;
         //camBounds = BoundsUtility.camBounds;
-        //SpawnEnemy();
+        SpawnEnemy();
     }
 
     // Start is called before the first frame update
@@ -72,19 +72,29 @@ public class GameManager : MonoBehaviour
     void SpawnEnemy()
     {
         int index = Random.Range(0, enemyObjects.Length);
+        //Debug.Log(index);
         GameObject go = Instantiate(enemyObjects[index]);
 
         float xRange;
         float yRange;
-        Enemy e = go.GetComponentInChildren<Enemy>();
+        Enemy e;
+        if (go.GetComponent<Transform>().childCount == 0)
+        {
+            e = go.GetComponent<Enemy>();
+        }
+        else 
+        {
+            e = go.GetComponentInChildren<Enemy>();
+        }
+        
         if (e.GetEnemyType()==EnemyCollection.EnemyRed)
         {
-            xRange = Random.Range(backBounds.min.x + 4f, backBounds.max.x - 4f);            
+            xRange = Random.Range(backBounds.min.x+3f , backBounds.max.x-3f);            
             yRange = backBounds.max.y + SpawnPadding;
         }
         else 
         {
-            xRange = Random.Range(backBounds.min.x + 0.4f, backBounds.max.x - 0.4f);
+            xRange = Random.Range(backBounds.min.x+3f, backBounds.max.x-3f);
             yRange = backBounds.max.y + SpawnPadding;
         }
         

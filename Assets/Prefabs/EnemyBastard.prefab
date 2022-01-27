@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5652643316140893079}
   - component: {fileID: 5652643316140893076}
   m_Layer: 10
-  m_Name: idle_drone_purple
+  m_Name: Body
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,7 +96,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.02785772, y: 0.011136651}
+  m_Offset: {x: 0.028355122, y: -0.0044919252}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -107,7 +107,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9191297, y: 0.7749641}
+  m_Size: {x: 0.7374973, y: 0.70619893}
   m_EdgeRadius: 0
 --- !u!1 &5652643316765816955
 GameObject:
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 5652643316765816953}
   - component: {fileID: 5652643316765816950}
   m_Layer: 10
-  m_Name: idle_orb_redR
+  m_Name: PartRight
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -205,7 +205,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0055714846, y: -0.016705394}
+  m_Offset: {x: -0.0069310665, y: -0.016705394}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -216,7 +216,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8076997, y: 0.741554}
+  m_Size: {x: 0.7201805, y: 0.741554}
   m_EdgeRadius: 0
 --- !u!1 &5652643317009122708
 GameObject:
@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 5652643317009122706}
   - component: {fileID: 5652643317009122707}
   m_Layer: 10
-  m_Name: idle_orb_redL
+  m_Name: PartLeft
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -314,7 +314,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.011142999, y: -0.022273421}
+  m_Offset: {x: 0.0013597906, y: -0.009770751}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -325,7 +325,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.75198454, y: 0.7526901}
+  m_Size: {x: 0.72697896, y: 0.72768474}
   m_EdgeRadius: 0
 --- !u!1 &5652643317294210783
 GameObject:
@@ -336,8 +336,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5652643317294210780}
-  - component: {fileID: 1946043568}
   - component: {fileID: 1714637632}
+  - component: {fileID: 1540760203}
   m_Layer: 10
   m_Name: EnemyBastard
   m_TagString: Enemy
@@ -354,7 +354,7 @@ Transform:
   m_GameObject: {fileID: 5652643317294210783}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.81, y: 3.45, z: -1.8380075}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 5652643316140893078}
   - {fileID: 5652643316765816952}
@@ -362,32 +362,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1946043568
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5652643317294210783}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.05995202, y: -0.009986162}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.3389258, y: 0.7803006}
-  m_EdgeRadius: 0
 --- !u!114 &1714637632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -401,19 +375,60 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 0
-  Speed: 5
+  Speed: 30
   fireRate: 0.3
   health: 20
   originalColors: []
   materials: []
-  showDamageForFrames: 2
+  showDamageForFrames: 20
   remainingDamageFrames: 0
   powerUpDropChance: 0.2
-  Coins: 1
+  Coins: 20
   height: 0
   InScreen: 0
+  changeSpeed: 0
   points: []
   StartTime: 0
   DurationTime: 3
+  parts:
+  - name: Body
+    health: 20
+    protectedBy:
+    - PartRight
+    - PartLeft
+    go: {fileID: 0}
+    mat: {fileID: 0}
+  - name: PartRight
+    health: 10
+    protectedBy: []
+    go: {fileID: 0}
+    mat: {fileID: 0}
+  - name: PartLeft
+    health: 10
+    protectedBy: []
+    go: {fileID: 0}
+    mat: {fileID: 0}
+  other: {fileID: 0}
   selfLength: 1.5
   u: 0
+--- !u!50 &1540760203
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5652643317294210783}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
