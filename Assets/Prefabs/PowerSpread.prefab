@@ -164,12 +164,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e62b5b9e8055c41459d269e270b30567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 0
-  fadeTime: 0
+  lifeTime: 5
+  fadeTime: 3
   existTime: 0
   birthTime: 0
-  fadingTime: 0
-  type: 0
+  fadingTime: 2
+  type: 3
   driftMaxMin: {x: 0.25, y: 1}
   u: 0
   v: 0

@@ -153,6 +153,7 @@ public class Enemy_Bastard : Enemy
                     if (hitPart.health<0) 
                     {
                         Destroy(goHit);
+                        GameManager.S.PlayExplosionAnim(hitPart.go);
                     }
                 }
                 else 

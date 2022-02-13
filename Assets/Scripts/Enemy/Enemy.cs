@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     public float Speed = 10f;
     public float fireRate = 0.3f;
     public float health = 10;
-
+    public bool isDestroyed;
 
     [Header("颜色和材质")]
     public Color[] originalColors;
@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     [Header("受伤表现")]
     public int showDamageForFrames = 2;//显示伤害效果的帧数
     public int remainingDamageFrames = 0;//剩余的伤害效果帧数
+
 
     [Header("携带道具")]
     public float powerUpDropChance = 0.2f;//掉落升级道具的概率    
@@ -155,6 +156,7 @@ public class Enemy : MonoBehaviour
                 ShowDamage();
                 if (health <= 0)
                 {
+                    isDestroyed = true;
                     Debug.Log(enemyType);
                     switch (enemyType) 
                     {                        

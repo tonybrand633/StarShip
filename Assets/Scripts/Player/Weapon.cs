@@ -40,7 +40,8 @@ public class Weapon : MonoBehaviour
         def = GameManager.GetWeaponDefinition(_type);
         //此处可以再对子弹进行一系列操作
         //你总是能在改变武器类型的一瞬间进行射击
-        lastShot = 0;
+        //这里出现一个问题是如果一直在更改type，那么lastshot就一直为0
+        //lastShot = 0;
     }
 
     public void Fire() 
@@ -62,7 +63,7 @@ public class Weapon : MonoBehaviour
                 p.rig.velocity = Vector3.up * def.velocity;
                 break;
             case WeaponType.spread:
-                p = InstantiateProjectile();
+                p = InstantiateProjectile();    
                 p.rig.velocity = Vector3.up * def.velocity;
                 break;
             case WeaponType.triple:

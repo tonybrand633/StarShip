@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7545801821835008239}
   - component: {fileID: 7545801821835008237}
   - component: {fileID: 4315121404470667561}
+  - component: {fileID: 1382027590}
   m_Layer: 10
   m_Name: EnemyRed
   m_TagString: Enemy
@@ -70,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1033139549
+  m_SortingLayerID: -1283387295
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f680e5047c3880e4285d455c7e341a44, type: 3}
@@ -126,12 +127,13 @@ MonoBehaviour:
   Speed: 30
   fireRate: 0.3
   health: 10
+  isDestroyed: 0
   originalColors: []
   materials: []
   showDamageForFrames: 20
   remainingDamageFrames: 0
-  powerUpDropChance: 0.2
-  Coins: 10
+  powerUpDropChance: 1
+  Coins: 3
   height: 0
   InScreen: 0
   waveFrequency: 1.5
@@ -139,3 +141,22 @@ MonoBehaviour:
   waveRotY: 45
   x0: -12345
   birthTime: 0
+--- !u!95 &1382027590
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7545801821835008238}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 803f28468c983df4e8641bb4ab89223e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

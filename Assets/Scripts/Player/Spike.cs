@@ -87,13 +87,14 @@ public class Spike : MonoBehaviour
         {
             fireDelegate();
         }
+        weapon.type = GetComponentInChildren<Weapon>().type;
     }
 
     //防止误撞，防止一个敌人对玩家造成多次伤害
     public GameObject LastTriggerGameObject;
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (LastTriggerGameObject == other.gameObject) 
+        if (LastTriggerGameObject == other.gameObject)
         {
             return;
         }
@@ -102,20 +103,25 @@ public class Spike : MonoBehaviour
         if (other.tag == "Enemy")
         {
             shieldLevel--;
+            GameManager.S.PlayExplosionAnim(other.gameObject);
             Destroy(other.gameObject);
         }
-        if (other.tag == "PowerUp")
+        //else if (other.tag == "PowerUp")
+        //{
+        //    Debug.Log("Absorb");
+        //    AbsorbPowerUp(other.gameObject);
+        //}
+        else if (other.tag == "Coins") 
         {
-            Debug.Log("Absorb");
-            AbsorbPowerUp(other.gameObject);
+            CollectCoins(other.gameObject);
         }
-        else 
+        else
         {
             Debug.Log(other.gameObject.name);
         }
     }
 
-    public void AbsorbPowerUp(GameObject go) 
+    public void WeaponChange(GameObject go) 
     {
         PowerUp pu = go.GetComponent<PowerUp>();
         switch (pu.type) 
@@ -143,6 +149,14 @@ public class Spike : MonoBehaviour
                 break;
         }
         pu.AbsoredBy(this.gameObject);
+    }
+
+    void CollectCoins(GameObject go) 
+    {
+        CoinGame coinGame = go.GetComponent<CoinGame>();
+        coinGame.Absorb();
+        GameManager.S.coinsCollect++;
+        
     }
 
     void ClearWeapon() 

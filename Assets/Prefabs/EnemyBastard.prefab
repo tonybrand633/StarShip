@@ -69,7 +69,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1033139549
+  m_SortingLayerID: -1283387295
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 278b61a9028b9194ba3d4eeadb00f4fb, type: 3}
@@ -178,7 +178,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1033139549
+  m_SortingLayerID: -1283387295
   m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 4c8a2444f139c1447b5bd181110e264b, type: 3}
@@ -287,7 +287,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1033139549
+  m_SortingLayerID: -1283387295
   m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 4c8a2444f139c1447b5bd181110e264b, type: 3}
@@ -378,12 +378,13 @@ MonoBehaviour:
   Speed: 30
   fireRate: 0.3
   health: 20
+  isDestroyed: 0
   originalColors: []
   materials: []
   showDamageForFrames: 20
   remainingDamageFrames: 0
-  powerUpDropChance: 0.2
-  Coins: 20
+  powerUpDropChance: 1
+  Coins: 15
   height: 0
   InScreen: 0
   changeSpeed: 0
