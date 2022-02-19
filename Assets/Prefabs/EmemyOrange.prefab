@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 2125251072972090309}
   m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
   m_LocalPosition: {x: 1.65, y: 2.35, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1033139549
+  m_SortingLayerID: -1283387295
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e0eb2fcf83877bc4397b3002bf39153c, type: 3}
@@ -123,15 +123,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 0
-  Speed: 10
+  Speed: 50
   fireRate: 0.3
   health: 10
+  isDestroyed: 0
   originalColors: []
   materials: []
-  showDamageForFrames: 2
+  showDamageForFrames: 20
   remainingDamageFrames: 0
-  powerUpDropChance: 0.2
-  Coins: 1
+  powerUpDropChance: 1
+  Coins: 8
   height: 0
   InScreen: 0
   points: []

@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _________________________: 0
-  _type: 0
+  _type: 2
+  StoreProjectile: {fileID: 0}
   def:
     type: 0
     letter: 
@@ -115,7 +116,7 @@ Transform:
   m_GameObject: {fileID: 4497908048560767577}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.05, y: -3.82, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 4497908050241511509}
   - {fileID: 11851321}
@@ -185,8 +186,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36897cb064fd6f340980d4339a938557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 10
-  _______________________________________: 0
+  Speed: 50
+  _________________________: 0
+  weapon: {fileID: 11851322}
   LastTriggerGameObject: {fileID: 0}
 --- !u!61 &4497908048560767573
 BoxCollider2D:

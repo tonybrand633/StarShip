@@ -12,7 +12,10 @@ public class GameManager : MonoBehaviour
     public float SpawnRate;
     public float SpawnPadding;
     public float RestartTime;
+    public GameObject explosionAnim;
+    public int coinsCollect;
     public GameObject[]prefabPowerUp;
+    public GameObject coinPrefabs;
     public WeaponType[] powerUpFrequency = new WeaponType[] { WeaponType.ammoUp, WeaponType.shiled };
 
 
@@ -36,7 +39,7 @@ public class GameManager : MonoBehaviour
         }
         backBounds = BoundsUtility.backBounds;
         //camBounds = BoundsUtility.camBounds;
-        //SpawnEnemy();
+        SpawnEnemy();
     }
 
     // Start is called before the first frame update
@@ -72,19 +75,29 @@ public class GameManager : MonoBehaviour
     void SpawnEnemy()
     {
         int index = Random.Range(0, enemyObjects.Length);
+        //Debug.Log(index);
         GameObject go = Instantiate(enemyObjects[index]);
 
         float xRange;
         float yRange;
-        Enemy e = go.GetComponentInChildren<Enemy>();
+        Enemy e;
+        if (go.GetComponent<Transform>().childCount == 0)
+        {
+            e = go.GetComponent<Enemy>();
+        }
+        else 
+        {
+            e = go.GetComponentInChildren<Enemy>();
+        }
+        
         if (e.GetEnemyType()==EnemyCollection.EnemyRed)
         {
-            xRange = Random.Range(backBounds.min.x + 4f, backBounds.max.x - 4f);            
+            xRange = Random.Range(backBounds.min.x+3f , backBounds.max.x-3f);            
             yRange = backBounds.max.y + SpawnPadding;
         }
         else 
         {
-            xRange = Random.Range(backBounds.min.x + 0.4f, backBounds.max.x - 0.4f);
+            xRange = Random.Range(backBounds.min.x+3f, backBounds.max.x-3f);
             yRange = backBounds.max.y + SpawnPadding;
         }
         
@@ -107,18 +120,45 @@ public class GameManager : MonoBehaviour
 
     public void ShipDestoryed(Enemy e) 
     {
-        if (Random.value<=e.powerUpDropChance) 
+        float coinsForce = 15f;
+        PlayExplosionAnim(e);
+
+        for (int i = 0; i < e.Coins; i++)
         {
-            //在这里Random.value生成一个0到1之间的数字
-            int indx = Random.Range(0, powerUpFrequency.Length);
-            WeaponType puType = powerUpFrequency[indx];
-            //生成道具
-            GameObject go = Instantiate(prefabPowerUp[indx]) as GameObject;
-            PowerUp pu = go.GetComponent<PowerUp>();
-            //设置正确的武器类型
-            pu.SetType(puType);
-            //将其位置摆放在消灭敌人飞机的位置
-            pu.transform.position = e.transform.position;        
+            GameObject coin = Instantiate(coinPrefabs) as GameObject;        
+            Vector3 randomForce = Random.insideUnitSphere;
+            Rigidbody2D cRig = coin.GetComponent<Rigidbody2D>();
+            cRig.AddForce(randomForce*coinsForce, ForceMode2D.Impulse);
+            coin.transform.position = e.transform.position;
         }
+
+        
+
+        //生成道具的函数，在这个游戏里不需要了
+        //if (Random.value<=e.powerUpDropChance) 
+        //{
+        //    //在这里Random.value生成一个0到1之间的数字
+        //    int indx = Random.Range(0, powerUpFrequency.Length);
+        //    //WeaponType puType = powerUpFrequency[indx];
+        //    //生成道具
+        //    GameObject go = Instantiate(prefabPowerUp[indx]) as GameObject;
+        //    //PowerUp pu = go.GetComponent<PowerUp>();
+        //    //设置正确的武器类型
+        //    //pu.SetType(puType);
+        //    //将其位置摆放在消灭敌人飞机的位置
+        //    go.transform.position = e.transform.position;        
+        //}
+    }
+
+    public void PlayExplosionAnim(Enemy e) 
+    {
+        GameObject explosion = Instantiate(explosionAnim) as GameObject;
+        explosion.transform.position = e.transform.position;
+    }
+
+    public void PlayExplosionAnim(GameObject go) 
+    {
+        GameObject explosion = Instantiate(explosionAnim) as GameObject;
+        explosion.transform.position = go.transform.position;
     }
 }
